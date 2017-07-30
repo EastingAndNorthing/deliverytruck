@@ -12,6 +12,8 @@ import { AuthService } from 'app/shared/services/auth.service';
 })
 export class LoginComponent implements OnInit {
 
+  errorMsg: string;
+
   constructor(private authService: AuthService, private router: Router) {
     if(this.router.url == '/logout') {
       this.authService.logout();
