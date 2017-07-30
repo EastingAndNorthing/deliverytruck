@@ -23,7 +23,7 @@ module.exports = function(app) {
   // Create API group routes
   const apiRoutes = express.Router();
 
-  apiRoutes.post('/register', function(req, res) {
+  apiRoutes.post('/register', requireAuth, function(req, res) {
     if(!req.body.email || !req.body.password) {
       res.status(400).json({ success: false, message: 'Please enter email and password.' });
     } else {
@@ -43,7 +43,6 @@ module.exports = function(app) {
 
   // Authenticate the user and retrieve a JSON Web Token
   apiRoutes.post('/authenticate', function(req, res) {
-    console.log(req.body);
     User.findOne({
       email: req.body.email
     }, function(err, user) {
