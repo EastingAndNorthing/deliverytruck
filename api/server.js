@@ -1,39 +1,29 @@
-var express = require('express');
-var path = require('path');
-var bodyParser = require('body-parser');
-var env = require('dotenv').config()
+// Include our packages in our main server file
+const express = require('express');
+app = express();
+const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
+const morgan = require('morgan');
+const passport = require('passport');
+const config = require('./config/main');
+const cors = require('cors');
+const port = 3000;
 
-var port = process.env.PORT;
-
-var index = require('./routes/index');
-var redirects = require('./routes/redirects');
-
-var app = express();
-
-// View engine
-// app.set('views', path.join(__dirname, 'views'));
-// app.set('view engine', 'ejs');
-// app.engine('html', require('ejs').renderFile);
-
-// Set static folder
-// app.use(express.static(path.join(__dirname, 'client')));
-
-// Body Parser
+// Use body-parser to get POST requests for API use
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(cors());
 
-// Headers
-app.use(function (req, res, next) {
-    res.header('Access-Control-Allow-Origin', process.env.CLIENT_HOST);
-    res.header('Access-Control-Allow-Methods', 'GET, POST');
-    res.header('Access-Control-Allow-Headers', 'Content-Type');
-    next();
+// Log requests to console
+app.use(morgan('dev'));
+
+app.get('/', function(req, res) {
+  res.send('Relax. We will put the home page here later.');
 });
 
-// Routes 
-app.use('', index);
-app.use('', redirects);
+mongoose.connect(config.database);
 
-app.listen(port, function() {
-    console.log('Server started on ', port);
-})
+require('./app/routes')(app);
+
+app.listen(config.port);
+console.log('Your server is running on port ' + port + '.');
