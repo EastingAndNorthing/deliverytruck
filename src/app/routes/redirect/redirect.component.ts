@@ -23,7 +23,7 @@ export class RedirectComponent implements OnInit {
       
       const id = params['id'];
       
-      this.dataService.get(`/redirects/${id}`)
+      this.dataService.get(`redirects/${id}`)
         .subscribe(data => {
           if(data !== null) {
 
