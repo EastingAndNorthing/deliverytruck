@@ -22,8 +22,8 @@ export class AuthService {
     this.jwtService.requestToken(username, password)
       .subscribe(
         res =>  {
-          if(res.access_token) this.jwtService.saveToken(res.access_token);
-          if(this.jwtService.getToken()) this.setLoggedIn(true);
+          if(res.success) this.jwtService.saveToken(res.token);
+          this.setLoggedIn(true);
         },
         error => this.error$.next(error.json())
       );

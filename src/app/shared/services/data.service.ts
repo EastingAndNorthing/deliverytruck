@@ -7,20 +7,18 @@ import { Observable } from 'rxjs/Rx';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 
+import { JwtService } from './jwt.service';
 import { AuthService } from './auth.service';
 
 @Injectable()
 export class DataService {
 
   constructor(
+    private jwtService: JwtService,
     private http: Http,
     private authService: AuthService,
     private router: Router
-  ) {
-    // this.authService.authenticated.subscribe(auth => {
-    //   // if(auth) 
-    // });
-  }
+  ) {}
 
   private setHeaders(): Headers {
     const headersConfig = {
@@ -28,9 +26,9 @@ export class DataService {
       'Accept': 'application/json'
     };
 
-    // if (this.jwtService.getToken()) {
-    //   headersConfig['Authorization'] = `Bearer ${this.jwtService.getToken()}`;
-    // }
+    if (this.jwtService.getToken()) {
+      headersConfig['Authorization'] = this.jwtService.getToken();
+    }
     return new Headers(headersConfig);
   }
 

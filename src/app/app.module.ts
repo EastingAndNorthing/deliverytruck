@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { JwtService } from './shared/services/jwt.service';
 import { AuthService } from './shared/services/auth.service';
 import { AuthGuard } from './shared/services/auth-guard.service';
+import { DataService } from './shared/services/data.service';
 
 // Routes
 import { routing, routedComponents } from './routes/routes';
@@ -37,6 +38,7 @@ import { CapitalizePipe } from './shared/pipes/capitalize.pipe';
     JwtService,
     AuthService,
     AuthGuard,
+    DataService
   ],
   bootstrap: [AppComponent]
 })

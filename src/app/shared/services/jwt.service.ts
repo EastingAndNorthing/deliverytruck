@@ -8,34 +8,34 @@ import 'rxjs/add/operator/catch';
 @Injectable()
 export class JwtService {
 
-  tokenUrl: string = 'Token';
-
   constructor(private http: Http) {}
 
   getToken(): String {
-    return window.localStorage['jwtToken'];
+    return window.localStorage['token'];
   }
 
   requestToken(username, password) {
 
-    let headers = new Headers({'Content-Type': 'application/x-www-form-urlencoded'});
-    let options = new RequestOptions({headers});
-    let body = new URLSearchParams();
-    body.append('grant_type', 'password');
-    body.append('username', username);
-    body.append('password', password);
+    let headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
+    let options = new RequestOptions({ headers });
+    
+    let urlSearchParams = new URLSearchParams();
+    urlSearchParams.append('email', username);
+    urlSearchParams.append('password', password);
 
-    return this.http.post(`${this.tokenUrl}`, body.toString(), options)
+    let body = urlSearchParams.toString()
+
+    return this.http.post(`${environment.apiUrl}/authenticate`, body, options)
       .map((res: Response) => res.json());
      
   }
 
   saveToken(token: String) {
-    window.localStorage['jwtToken'] = token;
+    window.localStorage['token'] = token;
   }
 
   destroyToken() {
-    window.localStorage.removeItem('jwtToken');
+    window.localStorage.removeItem('token');
   }
 
 }

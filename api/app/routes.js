@@ -43,13 +43,14 @@ module.exports = function(app) {
 
   // Authenticate the user and retrieve a JSON Web Token
   apiRoutes.post('/authenticate', function(req, res) {
+    console.log(req.body);
     User.findOne({
       email: req.body.email
     }, function(err, user) {
       if (err) throw err;
 
       if (!user) {
-        res.status(401).json({ success: false, message: 'Authentication failed. User not found.' });
+        res.status(401).json({ success: false, message: 'Authentication failed.' });
       } else {
         user.comparePassword(req.body.password, function(err, isMatch) {
           if (isMatch && !err) {
@@ -58,7 +59,7 @@ module.exports = function(app) {
             });
             res.status(200).json({ success: true, token: 'JWT ' + token });
           } else {
-            res.status(401).json({ success: false, message: 'Authentication failed. Passwords did not match.' });
+            res.status(401).json({ success: false, message: 'Authentication failed.' });
           }
         });
       }
@@ -67,27 +68,24 @@ module.exports = function(app) {
 
   apiRoutes.get('/redirects/:id', function(req, res) {
     // Redirect.find({$or : [{'to': req.user._id}, {'from': req.user._id}]}, function(err, messages) {
-    Redirect.findOne({ title: req.params.id }, function(err, messages) {
+    Redirect.findOne({ title: req.params.id }, function(err, data) {
       
       if (err) res.status(400).send(err);
 
-      res.status(200).json(messages);
+      res.status(200).json(data);
     });
   });
 
   apiRoutes.post('/redirects', requireAuth, function(req, res) {
+
     const redirect = new Redirect();
+    redirect.title = req.body.title;
+    redirect.url = req.body.url;
 
-        console.log(req.body.title, typeof req.body.title);
-
-        redirect.title = req.body.title;
-        redirect.url = req.body.url;
-
-        redirect.save(function(err) {
-            if (err) res.status(400).json(err);
-
-            res.status(201).json(redirect);
-        });
+    redirect.save(function(err) {
+        if (err) res.status(400).json(err);
+        res.status(201).json(redirect);
+    });
   });
 
   // // PUT to update a message the authenticated user sent

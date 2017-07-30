@@ -6,8 +6,7 @@ import { DataService } from 'app/shared/services/data.service';
 @Component({
   selector: 'app-redirect',
   templateUrl: './redirect.component.html',
-  styleUrls: ['./redirect.component.scss'],
-  providers: [DataService]
+  styleUrls: ['./redirect.component.scss']
 })
 export class RedirectComponent implements OnInit {
 
@@ -23,7 +22,7 @@ export class RedirectComponent implements OnInit {
       
       const id = params['id'];
       
-      this.dataService.get(`redirects/${id}`)
+      this.dataService.get(`/redirects/${id}`)
         .subscribe(data => {
           if(data !== null) {
 

@@ -12,11 +12,6 @@ import { AuthService } from 'app/shared/services/auth.service';
 })
 export class LoginComponent implements OnInit {
 
-  @Input() username: string;
-  @Input() password: string;
-
-  errorMsg: any;
-
   constructor(private authService: AuthService, private router: Router) {
     if(this.router.url == '/logout') {
       this.authService.logout();
@@ -24,9 +19,9 @@ export class LoginComponent implements OnInit {
     this.authService.authenticated.subscribe(auth => {
       if(auth) this.router.navigate(['/dashboard']);
     });
-    this.authService.error.subscribe(err => {
-      this.errorMsg = err.error_description
-    });
+    // this.authService.error.subscribe(err => {
+    //   this.errorMsg = err.error_description
+    // });
   }
 
   ngOnInit() { }

@@ -6,13 +6,14 @@ import { AuthService } from './auth.service';
 @Injectable()
 export class AuthGuard implements CanActivate {
 
-  constructor(private auth: AuthService, private router: Router) { }
+  constructor(private authService: AuthService, private router: Router) { }
 
   canActivate() {
-    // if (!this.auth.authenticated) {
-    //   this.router.navigate(['']);
-    //   return false;
-    // }
+    this.authService.authenticated
+      .subscribe(auth => {
+        if(!auth) this.router.navigate(['']);
+        return false;
+      });
     return true;
   }
 }

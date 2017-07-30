@@ -13,22 +13,19 @@ const appRoutes: Routes = [
     path: '',
     component: HomeComponent
   },
-  // { 
-  //   path: 'login',
-  //   component: LoginComponent
-  // },
-  // { 
-  //   path: 'logout',
-  //   component: LoginComponent
-  // },
-  // {
-  //   path: 'dashboard',
-  //   component: DashboardComponent
-  // },
-  // { 
-  //   path: 'user/:id',
-  //   component: DashboardComponent
-  // },
+  { 
+    path: 'login',
+    component: LoginComponent
+  },
+  { 
+    path: 'logout',
+    component: LoginComponent
+  },
+  {
+    path: 'dashboard',
+    component: DashboardComponent,
+    canActivate: [AuthGuard]
+  },
   { 
     path: 'go/:id',
     component: RedirectComponent
