@@ -1,8 +1,10 @@
 export class Utils {
 
-    public static flipTile(tile){
-        tile.tileState = 'flip-out';
-        setTimeout(() => tile.tileState = 'flip-in', 300);
+    public static httpfy(url) {
+        if (!/^(f|ht)tps?:\/\//i.test(url)) {
+            url = "http://" + url;
+        }
+        return url;
     }
     
 }

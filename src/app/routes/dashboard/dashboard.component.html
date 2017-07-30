@@ -1,10 +1,27 @@
-<div class="flex-center">
-  <h1>DASHBOARD</h1>
+<div class="flex-center text-center">
 
-  <form>
-    <h4>Generate a shortlink</h4>
+
+  <form (keyup.enter)="login(title.value, url.value)" class="card">
     
+    <h1>Welcome.</h1>
+    <br>
+    <h4>Generate a shortlink</h4>
+    <br>
+
+    <div class="form-group">
+      <input #title type="text" class="form-control" id="name" placeholder="Title (leave blank for random)" required> 
+      <input #url type="url" class="form-control" id="url" placeholder="URL" required>
+      <button (click)="addRedirect(title.value, url.value)" *ngIf="!submitted" [disabled]="formDisabled" type="button" class="btn btn-white btn-large">Get link</button>
+    </div>
+    
+    <div *ngIf="submitted">
+      <h4>Send it:</h4>
+      <a href="/go/{{ linkTitle }}">{{ linkTitle }}</a>
+    </div>
+
   </form>
+
+
 
 </div>
 

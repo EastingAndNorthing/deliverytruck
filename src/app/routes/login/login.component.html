@@ -1,8 +1,11 @@
-<div class="flex-center">
+<div class="flex-center text-center">
 
-  <form (keyup.enter)="login(username.value, password.value)" id="login-form" class="form center">
+  <form (keyup.enter)="login(username.value, password.value)" id="login-form" class="card center">
 
     <h1>Login</h1>
+    <h4>Bestelb.us</h4>
+    <img class="site-logo-small" src="assets/images/delivery-truck.svg" alt="Delivery truck">
+    <br><br>
 
     <div class="form-group">
        <input #username type="text" class="form-control" id="name" placeholder="Gebruikersnaam" required> 

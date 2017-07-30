@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { DataService } from 'app/shared/services/data.service';
+import { Utils } from 'app/shared/utils';
 
 @Component({
   selector: 'app-redirect',
@@ -29,7 +30,7 @@ export class RedirectComponent implements OnInit {
             this.linkStatus = 1;
             this.url = data.url;
 
-            setTimeout(() => window.location.href = data.url, this.timeout);
+            setTimeout(() => window.location.href = Utils.httpfy(data.url), this.timeout);
 
           } else {
             this.linkStatus = -1;

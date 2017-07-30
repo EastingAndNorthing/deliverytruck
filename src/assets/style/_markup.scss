@@ -13,6 +13,19 @@
   text-align: center;
 }
 
+.btn, input[type=submit], button {
+  cursor: pointer;
+  text-transform: uppercase;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  color: white;
+  background: $accent;
+  border: none;
+  -webkit-appearance: none;
+  padding: 0.7em 1em;
+  border-radius: 0.18em;
+}
+
 h1,h2,h3,h4,h5,h6 {
   @extend .aesthetic;
 }
@@ -36,4 +49,39 @@ table {
   img {
     max-width: 5em;
   }
+}
+
+form {
+  width: 21em;
+  padding: 1em 0;
+  
+  input {
+    font-size: 1em;
+    width: 100%;
+    resize: none;
+    vertical-align: top;
+    padding: 0.7em 1em;
+    margin-bottom: 0.6em;
+    box-sizing: border-box;
+    border-radius: 0.18em;
+    background: #e4e3e3;
+    border: none;
+  }
+
+  select {
+    background: #e4e3e3;
+    border: none;
+    border-radius: 0.18em;
+    padding: 0.3em;
+  }
+
+  label {
+    display: inline-block;
+    margin-bottom: 0.4em;
+  }
+
+  input[type=submit], button {
+    width: 100%;
+  }
+
 }

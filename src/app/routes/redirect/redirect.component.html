@@ -2,9 +2,9 @@
 
   <app-logo></app-logo>
 
-  <div [ngSwitch]="linkStatus" class="txt aesthetic">
+  <div [ngSwitch]="linkStatus" class="txt aesthetic text-center">
     <p *ngSwitchCase="0">Retrieving your link...</p>
-    <p *ngSwitchCase="1">Delivering you to <a href="{{ url }}">{{ url }}</a>.</p>
+    <p *ngSwitchCase="1">Delivering you to: <p><a href="{{ url }}">{{ url }}</a><p></p>
     <p *ngSwitchCase="-1"><span class="accent">Sorry!</span> This link has been expired or removed.</p>
   </div>
 
