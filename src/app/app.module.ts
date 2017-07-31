@@ -22,6 +22,7 @@ import { LogoComponent } from './components/logo/logo.component';
 // Pipes
 import { CapitalizePipe } from './shared/pipes/capitalize.pipe';
 import { ShortlinkGeneratorComponent } from './components/shortlink-generator/shortlink-generator.component';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { ShortlinkGeneratorComponent } from './components/shortlink-generator/sh
     RedirectComponent,
     LogoComponent,
     CapitalizePipe,
-    ShortlinkGeneratorComponent
+    ShortlinkGeneratorComponent,
+    SidebarComponent
   ],
   imports: [
     HttpModule,

@@ -1,0 +1,88 @@
+.hamburger {
+    position: fixed;
+    z-index: 101;
+    top: 0;
+    left: 0;
+    font-size: 1.6em;
+    padding: 0.4em 0.6em;
+    border-radius: 0;
+    background: transparent;
+    color: $darkgrey;
+
+    @media screen and (min-width: 960px) {
+        display: none;
+    }
+
+    &:hover {
+        color: $accent;
+    }
+
+    &:focus {
+        outline: none;
+    }
+}
+
+.flex-dashboard {
+    display: flex;
+    height: 100%;
+}
+
+aside {
+    height: 100%;
+    width: 20em;
+    background: #eff1f1;
+    will-change: transform;
+    nav {
+        height: 100%;
+    }
+}
+main {
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    width: 70%;
+    width: calc(100% - 20em);
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  font-size: 0.8em;
+  padding: 0.7em;
+  p {
+    color: #888;
+    a {
+      color: inherit;
+    }
+  }
+}
+
+@media screen and (max-width: 960px) {
+    aside {
+        position: fixed;
+        z-index: 100;
+        left: 0;
+        top: 0;
+        transform: translateX(-102%);
+        transition: all 200ms ease-out;
+        
+        &.activated {
+            transform: translateX(0);
+            box-shadow: 0 0 1em rgba(0,0,0,0.2);
+        }
+
+        nav {
+            padding-top: 4em;
+        }
+    }
+    main {
+        width: 100%;
+    } 
+}
+
+@media screen and (max-width: 480px) {
+    aside {
+        width: 100%;
+    }
+}

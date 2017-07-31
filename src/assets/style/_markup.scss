@@ -8,7 +8,7 @@
 
 .aesthetic {
     text-transform: uppercase;
-    letter-spacing: 0.06em;
+    // letter-spacing: 0.06em;
     font-weight: 700;
     color: $darkgrey;
 }
@@ -24,6 +24,9 @@ p {
 a {
     color: $accent;
     text-decoration: none;
+    &.active {
+        color: $accent !important;
+    }
 }
 
 table {

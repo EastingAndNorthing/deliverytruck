@@ -1,0 +1,15 @@
+nav {
+    a {
+        cursor: pointer;
+        display: block;
+        background: #e1e5e5;
+        padding: 1em;
+        color: #333;
+        &:hover {
+            background: #dce0e0
+        }
+        &.active {
+            background: #dce0e0;
+        }
+    }
+}

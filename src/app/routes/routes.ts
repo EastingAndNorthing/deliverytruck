@@ -26,6 +26,16 @@ const appRoutes: Routes = [
     component: DashboardComponent,
     canActivate: [AuthGuard]
   },
+  {
+    path: 'dashboard/files',
+    component: DashboardComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'dashboard/links',
+    component: DashboardComponent,
+    canActivate: [AuthGuard]
+  },
   { 
     path: 'go/:id',
     component: RedirectComponent
