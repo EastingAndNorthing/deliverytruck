@@ -22,10 +22,15 @@ export class AuthService {
     this.jwtService.requestToken(username, password)
       .subscribe(
         res =>  {
-          if(res.success) this.jwtService.saveToken(res.token);
-          this.setLoggedIn(true);
+          // console.log('Auth:', res);
+          if(res.success) {
+            this.jwtService.saveToken(res.token);
+            this.setLoggedIn(true);
+          }
         },
-        error => this.error$.next(error.json())
+        error => {
+          console.error('Auth:', error);
+        }
       );
   }
 

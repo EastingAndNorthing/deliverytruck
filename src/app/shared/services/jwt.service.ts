@@ -26,6 +26,9 @@ export class JwtService {
     let body = urlSearchParams.toString()
 
     return this.http.post(`${environment.apiUrl}/authenticate`, body, options)
+      .catch((err: any) => {
+        return Observable.of(err);
+      })
       .map((res: Response) => res.json());
      
   }

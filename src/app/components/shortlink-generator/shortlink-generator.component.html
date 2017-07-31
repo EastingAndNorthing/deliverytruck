@@ -1,0 +1,36 @@
+<div class="flex-center text-center">
+  
+  <form (ngSubmit)="onSubmit(title.value, url.value)" #redirectForm="ngForm" class="card text-center">
+    
+    <!-- <h1>Welcome.</h1> 
+    <br>  -->
+    <h3>Create a package</h3>
+    <br>
+
+    <div class="form-group">
+
+      <input #url="ngModel" type="text" class="form-control" id="url"
+            [(ngModel)]="redirectModel.url" name="url"
+            placeholder="URL"
+            required>
+
+      <input #title="ngModel" type="text" class="form-control" id="title"
+            [(ngModel)]="redirectModel.title" name="title"
+            placeholder="Title">
+
+      <button type="submit" class="btn {{ submitted ? 'loading' : '' }}" [disabled]="!redirectForm.form.valid || submitted">Generate</button>
+      
+      <!-- <p class="accent">{{ title.value }}</p> -->
+
+    </div>
+
+    <br>
+
+    <div *ngIf="submitted" class="aesthetic">
+      <input type="readonly" value="{{ generatedLink }}">
+      <a href="/go/{{ linkTitle }}" target="_blank" class="btn btn-wide">Check your link</a>
+    </div>
+
+  </form>
+
+</div>

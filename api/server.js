@@ -26,7 +26,7 @@ app.use(function (req, res, next) {
 app.use(morgan('dev'));
 
 app.get('/', function(req, res) {
-  res.send('Relax. We will put the home page here later.');
+  res.send('');
 });
 
 mongoose.connect(config.database);

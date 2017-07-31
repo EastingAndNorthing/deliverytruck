@@ -49,12 +49,12 @@ module.exports = function(app) {
       if (err) throw err;
 
       if (!user) {
-        res.status(401).json({ success: false, message: 'Authentication failed.' });
+        res.status(400).json({ success: false, message: 'Wrong username or password.' });
       } else {
         user.comparePassword(req.body.password, function(err, isMatch) {
           if (isMatch && !err) {
             const token = jwt.sign(user, config.secret, {
-              expiresIn: 10080
+              expiresIn: 3600
             });
             res.status(200).json({ success: true, token: 'JWT ' + token });
           } else {

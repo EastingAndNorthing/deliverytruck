@@ -5,6 +5,8 @@ $grey: #f7f8f8;
 $darkgrey: #333;
 
 @import 'markup';
+@import 'input';
+@import 'card';
 
 * {
   margin: 0;
@@ -81,11 +83,4 @@ footer {
   50% {
     transform: translateY(1.2%);
   }
-}
-
-.card {
-  background: white;
-  border-radius: 0.2em;
-  padding: 4em 2em;
-  box-shadow: 0 0.4em 1em rgba(0,0,0,0.15)
 }

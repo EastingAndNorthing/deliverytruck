@@ -1,7 +1,14 @@
 export class User {
-  FirstName: string;
-  LastName: string;
-  isRequested: boolean;
-  isAdmin: boolean;
-  isActive: boolean;
+
+  username: string;
+  password: string;
+
+  constructor(
+    username: string,
+    password: string
+  ) {
+    this.username = username;
+    this.password = password;
+  }
+
 }

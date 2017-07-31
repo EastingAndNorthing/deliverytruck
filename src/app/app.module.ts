@@ -1,7 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
 import { HttpModule } from '@angular/http';
+import { FormsModule } from '@angular/forms';
+import { RouterModule, Routes } from '@angular/router';
+
 
 import { AppComponent } from './app.component';
 
@@ -19,6 +21,7 @@ import { LogoComponent } from './components/logo/logo.component';
 
 // Pipes
 import { CapitalizePipe } from './shared/pipes/capitalize.pipe';
+import { ShortlinkGeneratorComponent } from './components/shortlink-generator/shortlink-generator.component';
 
 @NgModule({
   declarations: [
@@ -27,11 +30,13 @@ import { CapitalizePipe } from './shared/pipes/capitalize.pipe';
     HomeComponent,
     RedirectComponent,
     LogoComponent,
-    CapitalizePipe
+    CapitalizePipe,
+    ShortlinkGeneratorComponent
   ],
   imports: [
     HttpModule,
     BrowserModule,
+    FormsModule,
     routing
   ],
   providers: [

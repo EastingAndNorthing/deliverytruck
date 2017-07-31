@@ -1,2 +1,2 @@
-export * from './alarm.model';
 export * from './user.model';
+export * from './redirect.model';
