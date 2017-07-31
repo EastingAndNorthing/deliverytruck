@@ -19,13 +19,20 @@ export class AuthService {
   }
 
   login(username, password) {
-    this.jwtService.requestToken(username, password)
+    return this.jwtService.requestToken(username, password)
       .subscribe(
         res =>  {
-          // console.log('Auth:', res);
           if(res.success) {
             this.jwtService.saveToken(res.token);
             this.setLoggedIn(true);
+          } else {
+            if(res.status > 0) {
+              this.error$.next(JSON.parse(res._body));
+            } else {
+              this.error$.next({
+                message: 'Server unavailable.'
+              });
+            }
           }
         },
         error => {

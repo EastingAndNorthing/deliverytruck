@@ -21,8 +21,9 @@
 
       <!-- <div [hidden]="username.valid || username.pristine" class="">Please enter a username.</div>
       <div [hidden]="password.valid || password.pristine" class="">Please enter a password.</div> -->
+      <button type="submit" class="btn {{ submitted ? 'loading' : '' }}" [disabled]="submitted">Log in</button>
 
-      <button type="submit" class="btn {{ submitted ? 'loading' : '' }}" [disabled]="!loginForm.form.valid">Log in</button>
+      <p [hidden]="!errorMsg" class="">{{ errorMsg }}</p>
 
     </div>
 

@@ -25,6 +25,11 @@ export class LoginComponent implements OnInit {
     this.authService.authenticated.subscribe(auth => {
       if(auth) this.router.navigate(['/dashboard']);
     });
+
+    this.authService.error.subscribe(err => {
+      this.errorMsg = err.message
+      setTimeout(() => this.submitted = false, 1000);
+    });
   }
 
   ngOnInit() { }
