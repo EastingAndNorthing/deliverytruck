@@ -2,9 +2,8 @@
   
   <form (ngSubmit)="onSubmit(title.value, url.value)" #redirectForm="ngForm" class="card text-center">
     
-    <!-- <h1>Welcome.</h1> 
-    <br>  -->
-    <h3>Create a package</h3>
+    <h3>Shortlink</h3>
+    <p>Generate it and send it to friends</p>
     <br>
 
     <div class="form-group">
@@ -24,10 +23,8 @@
 
     </div>
 
-    <br>
-
-    <div *ngIf="submitted" class="aesthetic">
-      <input type="readonly" value="{{ generatedLink }}">
+    <div [hidden]="!submitted" class="aesthetic card-flap">
+      <input type="readonly" onClick="this.select()" value="{{ generatedLink }}">
       <a href="/go/{{ linkTitle }}" target="_blank" class="btn btn-wide">Check your link</a>
     </div>
 

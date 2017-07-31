@@ -1,6 +1,25 @@
 .card {
+  @media screen and (max-width: 480px) {
+    padding: 3em 1.5em;
+  }
+  position: relative;
   background: white;
   border-radius: 0.2em;
-  padding: 4em 2em;
+  padding: 3em 2em;
   box-shadow: 0 0.4em 1em rgba(0,0,0,0.15)
+}
+
+.card-flap {
+  position: absolute;
+  background: #efefef;
+  top: 99%;
+  left: 0;
+  width: 100%;
+  padding: 1em;
+  text-align: center;
+  box-shadow: 0 0.6em 1em rgba(0, 0, 0, 0.15);
+  
+  p {
+    margin-bottom: 0
+  }
 }

@@ -3,9 +3,8 @@
   <form (ngSubmit)="onSubmit(username.value, password.value)" #loginForm="ngForm" class="card text-center">
 
     <h1>Login</h1>
-    <h4>Bestelb.us</h4>
-    <img class="site-logo-small" src="assets/images/delivery-truck.svg" alt="Delivery truck">
-    <br><br>
+    <!-- <img class="site-logo-small" src="assets/images/delivery-truck.svg" alt="Delivery truck">  -->
+    <br>
 
     <div class="form-group">
 
@@ -22,8 +21,10 @@
       <!-- <div [hidden]="username.valid || username.pristine" class="">Please enter a username.</div>
       <div [hidden]="password.valid || password.pristine" class="">Please enter a password.</div> -->
       <button type="submit" class="btn {{ submitted ? 'loading' : '' }}" [disabled]="submitted">Log in</button>
-
-      <p [hidden]="!errorMsg" class="">{{ errorMsg }}</p>
+      
+      <div [hidden]="!errorMsg" class="card-flap">
+        <p>{{ errorMsg }}</p>
+      </div>
 
     </div>
 

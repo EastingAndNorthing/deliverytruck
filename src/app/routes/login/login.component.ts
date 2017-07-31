@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
       this.authService.logout();
     }
     this.authService.authenticated.subscribe(auth => {
-      if(auth) this.router.navigate(['/dashboard']);
+      if(auth) this.router.navigate(['/dashboard/links']);
     });
 
     this.authService.error.subscribe(err => {
