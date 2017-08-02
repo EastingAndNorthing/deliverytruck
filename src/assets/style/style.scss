@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,600,700');
+@import url('https://fonts.googleapis.com/css?family=Titillium+Web:400,700');
 
 $accent: #2864e6;
 $grey: #f7f8f8;
@@ -22,7 +23,9 @@ html, body {
   margin: 0;
   padding: 0;
   background: $grey;
-  font-family: 'Poppins', sans-serif;
+  // font-family: 'Poppins', sans-serif;
+  font-family: 'Titillium Web', sans-serif;
+  perspective: 70em;
 }
 
 .flex {

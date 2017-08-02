@@ -34,9 +34,9 @@ module.exports = function(app) {
 
       newUser.save(function(err) {
         if (err) {
-          return res.status(400).json({ success: false, message: 'That email address already exists.'});
+          return res.status(400).json({ success: false, message: 'Username already taken.'});
         }
-        res.status(201).json({ success: true, message: 'Successfully created new user.' });
+        res.status(201).json({ success: true, message: 'Success!' });
       });
     }
   });
@@ -58,7 +58,7 @@ module.exports = function(app) {
             });
             res.status(200).json({ success: true, token: 'JWT ' + token });
           } else {
-            res.status(401).json({ success: false, message: 'Authentication failed.' });
+            res.status(401).json({ success: false, message: 'Wrong username or password.' });
           }
         });
       }

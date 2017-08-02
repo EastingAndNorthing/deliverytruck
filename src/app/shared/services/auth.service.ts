@@ -44,7 +44,7 @@ export class AuthService {
   logout() {
     this.jwtService.destroyToken();
     this.setLoggedIn(false);
-    this.router.navigate(['/login']);
+    this.router.navigate(['']);
   }
 
   get authenticated() {

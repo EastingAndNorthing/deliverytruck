@@ -2,8 +2,8 @@
 
 <aside class="{{ state ? 'activated' : '' }}">
   <nav class="flex flex-vertical aesthetic">
-    <a routerLink="/dashboard/files" routerLinkActive="active">Files</a>
-    <a routerLink="/dashboard/links" routerLinkActive="active">Links</a>
+    <a routerLink="/dashboard/files" routerLinkActive="active" (click)="state = false">Files</a>
+    <a routerLink="/dashboard/links" routerLinkActive="active" (click)="state = false">Links</a>
 
     <div class="flex-spacer"></div>
 

@@ -7,6 +7,8 @@ import { DashboardComponent } from 'app/routes/dashboard/dashboard.component';
 import { LoginComponent } from 'app/routes/login/login.component';
 import { RedirectComponent } from 'app/routes/redirect/redirect.component';
 import { PageNotFoundComponent } from 'app/routes/page-not-found/page-not-found.component';
+import { ShortlinkGeneratorComponent } from 'app/components/shortlink-generator/shortlink-generator.component';
+import { FileUploadComponent } from 'app/components/file-upload/file-upload.component';
 
 const appRoutes: Routes = [
   { 
@@ -24,17 +26,19 @@ const appRoutes: Routes = [
   {
     path: 'dashboard',
     component: DashboardComponent,
-    canActivate: [AuthGuard]
-  },
-  {
-    path: 'dashboard/files',
-    component: DashboardComponent,
-    canActivate: [AuthGuard]
-  },
-  {
-    path: 'dashboard/links',
-    component: DashboardComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard],
+    children: [
+      {
+        path: 'files',
+        component: FileUploadComponent,
+        canActivate: [AuthGuard]
+      },
+      {
+        path: 'links',
+        component: ShortlinkGeneratorComponent,
+        canActivate: [AuthGuard]
+      },
+    ]
   },
   { 
     path: 'go/:id',

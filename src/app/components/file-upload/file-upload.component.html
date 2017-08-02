@@ -1,12 +1,12 @@
 <div class="flex-center text-center">
   
-  <form (ngSubmit)="onSubmit(title.value, url.value)" #redirectForm="ngForm" class="card text-center">
+  <!-- <form (ngSubmit)="onSubmit(title.value, url.value)" #redirectForm="ngForm" class="card text-center"> -->
+  <form class="card text-center"> 
     
-    <h3>Shortlink</h3>
-    <p>Generate and send it to friends</p>
-    <br>
+    <h1>Upload a file</h1>
+    <p>(WIP; Check back soon!)</p>
 
-    <div class="form-group">
+     <!-- <div class="form-group">
 
       <input #url="ngModel" type="text" class="form-control" id="url"
             [(ngModel)]="redirectModel.url" name="url"
@@ -19,15 +19,12 @@
 
       <button type="submit" class="btn {{ submitted ? 'loading' : '' }}" [disabled]="!redirectForm.form.valid || submitted">Generate</button>
       
-      <!-- <p class="accent">{{ title.value }}</p> -->
-
     </div>
 
     <div [hidden]="!submitted" class="aesthetic card-flap">
-      <!-- <input type="text" onClick="this.select()" value="{{ generatedLink }}"> -->
-      <textarea rows="1" cols="50" onclick="this.focus(); this.select()" readonly="readonly">{{ generatedLink }}</textarea>
+      <input type="readonly" onClick="this.select()" value="{{ generatedLink }}">
       <a href="/go/{{ linkTitle }}" target="_blank" class="btn btn-wide">Check your link</a>
-    </div>
+    </div>  -->
 
   </form>
 
