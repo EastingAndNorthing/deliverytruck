@@ -87,3 +87,21 @@ html, body {
     transform: translateY(1.2%);
   }
 }
+
+
+.spinner {
+  pointer-events: none;
+  width: 3em;
+  height: 3em;
+  border: 0.4em solid transparent;
+  border-color: #eee;
+  border-top-color: $accent;
+  border-radius: 50%;
+  animation: loadingspin 1s linear infinite;
+}
+@keyframes loadingspin {
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
